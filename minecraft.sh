@@ -19,6 +19,7 @@ wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/mine
 
 # Go to the data dir and run the forge installer and then the minecraft server
 cd /srv
+cp -f /tmp/server.properties .
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer 2>/dev/null
 echo "eula=true" > eula.txt
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
