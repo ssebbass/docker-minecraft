@@ -22,4 +22,4 @@ cd /srv
 cp -f /tmp/server.properties .
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer 2>/dev/null
 echo "eula=true" > eula.txt
-screen -mS minecraft java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
+exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
