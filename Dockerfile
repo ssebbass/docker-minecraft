@@ -13,4 +13,5 @@ VOLUME ["/srv"]
 COPY server.properties /srv/server.properties
 WORKDIR /srv
 
+RUN chmod +x /minecraft.sh
 CMD [ "/minecraft.sh" ]
