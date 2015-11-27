@@ -27,12 +27,21 @@ fi
 
 # Go to the data dir and run the forge installer and then the minecraft server
 cd /srv
+cp -f /tmp/server.properties .
+
+# OPS conf
 if [ -n "$OPS" ]; then
   echo Operators=$OPS...
   rm -f ops*
   echo $OPS | awk -v RS=, '{print}' > ops.txt
 fi
-cp -f /tmp/server.properties .
+
+# SED conf
+if [ -n "$SED" ]; then
+  echo level-sed=$SED...
+  echo $SED >> server.properties
+fi
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
