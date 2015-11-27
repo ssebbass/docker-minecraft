@@ -10,7 +10,7 @@ EXPOSE 25565
 COPY minecraft.sh /minecraft.sh
 
 VOLUME ["/srv"]
-COPY server.properties /srv/server.properties
+COPY server.properties /tmp/server.properties
 WORKDIR /srv
 
 RUN chmod +x /minecraft.sh
