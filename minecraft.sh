@@ -13,4 +13,4 @@ wget "https://s3.amazonaws.com/Minecraft.Download/versions/1.8/minecraft_server.
 cd /srv
 echo "eula=true" > eula.txt
 
-exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$VERSION.jar
+exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.1.8.jar
