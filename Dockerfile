@@ -1,7 +1,7 @@
 # My First DockerFile
 # Just trying to get a minecraft server running to play with my son
 
-FROM java:jre
+FROM debian:stable-backports
 
 MAINTAINER sSeBBaSs
 
