@@ -38,8 +38,8 @@ fi
 
 # SEED conf
 if [ -n "$SEED" ]; then
-  echo level-sed=$SEED...
-  echo "level-seed=$SED" >> server.properties
+  echo level-seed=$SEED...
+  echo "level-seed=$SEED" >> server.properties
 fi
 
 # MTOD conf
