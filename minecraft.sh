@@ -45,6 +45,14 @@ if [ -n "$MTOD" ]; then
   echo "mtod=$MTOD" >> server.properties
 fi
 
+# MAP conf
+if [ -n "$MAP" ]; then
+  echo MAP=$MAP...
+  echo "level-name=$MAP" >> server.properties
+else
+  level-name=world >> server.properties
+fi
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
