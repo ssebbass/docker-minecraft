@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-# What we need to run all this
-# apt-get update && apt-get install -y openjdk-8-jre screen wget <-- Step moved to image build
-
 cd /tmp
 
 # Trying to find out what it's the forge recommanded version, and with what minecraft version
