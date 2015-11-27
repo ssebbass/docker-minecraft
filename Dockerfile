@@ -5,7 +5,7 @@ FROM java:jre
 
 MAINTAINER sSeBBaSs
 
-EXPOSE 25565
+# EXPOSE 25565
 
 COPY minecraft.sh /minecraft.sh
 
