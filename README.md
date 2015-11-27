@@ -15,4 +15,6 @@ Usage:
 ```
 
 Example:
+```
 > docker run -d -p 25565:25565 -v /srv/minecraftserver:/srv -e OPS="FOO,BAR" ssebbass/docker-minecraft
+```
