@@ -18,13 +18,14 @@ wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSI
 wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
 
 # Go to the data dir and run the forge installer and then the minecraft server
+echo Preparing server
 cd /srv
-rm -f ops*
 if [ -n "$OPS" ]; then
   echo Operators=$OPS...
+  rm -f ops*
   echo $OPS | awk -v RS=, '{print}' > ops.txt
 fi
 mv -f /tmp/server.properties .
-java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer 2>/dev/null
+java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
