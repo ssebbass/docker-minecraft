@@ -12,13 +12,20 @@ RECOMMENDEDFORGE=$( wget -O - $FORGEVER 2>/dev/null | grep '"recommended":' | aw
 RECOMMENDEDMINE=$( wget -O - $FORGEVER 2>/dev/null | grep $RECOMMENDEDFORGE | grep -v '"recommended"' | awk '{print $1}' | tr -d \" | tr -d \: | tr -d '[[:space:]]' | awk -F \- '{print $1}' )
 FORGEVERSION="$RECOMMENDEDMINE-$RECOMMENDEDFORGE"
 
-# Download forga and minecraft
-echo "Downloading Forge $RECOMMENDEDFORGE & Minecraft $RECOMMENDEDMINE..."
-wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar" 2>/dev/null
-wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
+# Download forge and minecraft
+if [ -e "forge-$FORGEVERSION-installer.jar" ]; then
+  echo Allready downloaded forge-$FORGEVERSION-installer.jar
+else
+  wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar" 2>/dev/null
+fi
+
+if [ -e "minecraft_server.$RECOMMENDEDMINE.jar" ]; then
+  echo Allready downloaded minecraft_server.$RECOMMENDEDMINE.jar
+else
+  wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
+fi
 
 # Go to the data dir and run the forge installer and then the minecraft server
-echo Preparing server
 cd /srv
 if [ -n "$OPS" ]; then
   echo Operators=$OPS...
