@@ -21,6 +21,7 @@ wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/mine
 cd /srv
 rm -f ops*
 if [ -n "$OPS" ]; then
+  echo Operators=$OPS...
   echo $OPS | awk -v RS=, '{print}' > ops.txt
 fi
 mv -f /tmp/server.properties .
