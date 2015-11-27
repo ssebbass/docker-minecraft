@@ -36,10 +36,16 @@ if [ -n "$OPS" ]; then
   echo $OPS | awk -v RS=, '{print}' > ops.txt
 fi
 
-# SED conf
-if [ -n "$SED" ]; then
-  echo level-sed=$SED...
-  echo $SED >> server.properties
+# SEED conf
+if [ -n "$SEED" ]; then
+  echo level-sed=$SEED...
+  echo "level-seed=$SED" >> server.properties
+fi
+
+# MTOD conf
+if [ -n "$MTOD" ]; then
+  echo MTOD=$MTOD...
+  echo "mtod=$MTOD" >> server.properties
 fi
 
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
