@@ -25,7 +25,7 @@ if [ -n "$OPS" ]; then
   rm -f ops*
   echo $OPS | awk -v RS=, '{print}' > ops.txt
 fi
-mv -f /tmp/server.properties .
+cp -f /tmp/server.properties .
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
