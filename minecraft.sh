@@ -14,11 +14,11 @@ FORGEVERSION="$RECOMMENDEDMINE-$RECOMMENDEDFORGE"
 
 # Download forga and minecraft
 echo "Downloading Forge $RECOMMENDEDFORGE & Minecraft $RECOMMENDEDMINE..."
-wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-universal.jar" 2>/dev/null
+wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar" 2>/dev/null
 wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
 
 # Go to the data dir and run the forge installer and then the minecraft server
-java -jar /tmp/forge-$FORGEVERSION-universal.jar --installServer
 cd /srv
+java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer 2>/dev/null
 echo "eula=true" > eula.txt
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
