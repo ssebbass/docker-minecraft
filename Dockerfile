@@ -8,10 +8,11 @@ MAINTAINER sSeBBaSs
 EXPOSE 25565
 
 COPY minecraft.sh /minecraft.sh
+COPY run.sh /run.sh
 
 VOLUME ["/srv"]
 COPY server.properties /tmp/server.properties
 WORKDIR /srv
 
 RUN chmod +x /minecraft.sh
-CMD [ "/minecraft.sh" ]
+CMD [ "/run.sh" ]
