@@ -2,7 +2,7 @@
 set -xe
 
 # What we need to run all this
-apt-get update && apt-get install -y openjdk-8-jre screen wget
+# apt-get update && apt-get install -y openjdk-8-jre screen wget <-- Step moved to image build
 
 cd /tmp
 
