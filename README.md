@@ -5,7 +5,7 @@ Supported ENV:
 ```
 OPS       -->   Operators list, OP="OP1,OP2"
 SEED      -->   Terrain seed number, SEED=#
-MTOD      -->   Server MTOD, MTOD="Some MTOD message"
+MOTD      -->   Server message of the day, MOTD="Some MOTD message"
 MAP       -->   Map name, MAP="wold"
 CLEANMAP  -->   Cleans $MAP|world on server startup, CLEANMAP=true
 GRAVATAR  -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
