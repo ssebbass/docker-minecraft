@@ -14,12 +14,12 @@ VOLUME ["/srv"]
 COPY server.properties /tmp/server.properties
 WORKDIR /srv
 
-RUN chmod +x /minecraft.sh
-RUN chmod +x /run.sh
-
-CMD [ "/run.sh" ]
+RUN chmod +x /minecraft.sh \
+  && chmod +x /run.sh
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   imagemagick \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+
+CMD [ "/run.sh" ]
