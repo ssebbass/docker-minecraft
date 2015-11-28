@@ -18,5 +18,5 @@ Usage:
 
 Example:
 ```
-# docker run -d -p 25565:25565 -v /srv/minecraftserver:/srv -e MTOD="My server MTOD" -e SEED="488956386" -e OPS="FOO,BAR" ssebbass/docker-minecraft
+# docker run -d -p 25565:25565 -v /srv/minecraftserver:/srv -e MOTD="My server MOTD" -e SEED="488956386" -e OPS="FOO,BAR" ssebbass/docker-minecraft
 ```
