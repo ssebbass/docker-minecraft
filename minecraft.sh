@@ -59,6 +59,14 @@ if [ "$CLEANMAP" = "true" ] && [ -n "$MAP" ] ; then
   rm -Rf $MAP
 fi
 
+# Gravatar icon
+if [ -n "$GRAVATAR" ] ; then
+  echo GRAVATAR=$GRAVATAR...
+  URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
+  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64
+  conver server-icon.jpg server-icon.png
+fi
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 exec java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
