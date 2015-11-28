@@ -8,6 +8,7 @@ SEED      -->   Terrain seed number, SEED=#
 MTOD      -->   Server MTOD, MTOD="Some MTOD message"
 MAP       -->   Map name, MAP="wold"
 CLEANMAP  -->   Cleans $MAP|world on server startup, CLEANMAP=true
+GRAVATAR  -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
 ```
 
 Usage:
