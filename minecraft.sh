@@ -39,10 +39,10 @@ if [ -n "$SEED" ]; then
   echo "level-seed=$SEED" >> server.properties
 fi
 
-# MTOD conf
-if [ -n "$MTOD" ]; then
-  echo MTOD=$MTOD...
-  echo "mtod=$MTOD" >> server.properties
+# MOTD conf
+if [ -n "$MOTD" ]; then
+  echo MOTD=$MOTD...
+  echo "motd=$MOTD" >> server.properties
 fi
 
 # MAP conf
