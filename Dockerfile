@@ -21,4 +21,5 @@ WORKDIR /srv
 
 RUN chmod +x /minecraft.sh
 RUN chmod +x /run.sh
+
 CMD [ "/run.sh" ]
