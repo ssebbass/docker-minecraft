@@ -65,7 +65,7 @@ if [ -n "$GRAVATAR" ] ; then
   [ -f server-icon.jpg ] && rm -f server-icon.jpg
   [ -f server-icon.png ] && rm -f server-icon.png
   URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
-  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64
+  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64 >/dev/null 2>&1
   convert server-icon.jpg server-icon.png
 fi
 
