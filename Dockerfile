@@ -7,11 +7,6 @@ MAINTAINER sSeBBaSs
 
 EXPOSE 25565
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  imagemagick
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
 COPY minecraft.sh /minecraft.sh
 COPY run.sh /run.sh
 
@@ -23,3 +18,8 @@ RUN chmod +x /minecraft.sh
 RUN chmod +x /run.sh
 
 CMD [ "/run.sh" ]
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  imagemagick
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
