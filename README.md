@@ -3,12 +3,13 @@ docker minecraft dockerfile
 
 Supported ENV:
 ```
-OPS       -->   Operators list, OP="OP1,OP2"
-SEED      -->   Terrain seed number, SEED=#
-MOTD      -->   Server message of the day, MOTD="Some MOTD message"
-MAP       -->   Map name, MAP="wold"
-CLEANMAP  -->   Cleans $MAP|world on server startup, CLEANMAP=true
-GRAVATAR  -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
+OPS         -->   Operators list, OP="OP1,OP2"
+SEED        -->   Terrain seed number, SEED=#
+MOTD        -->   Server message of the day, MOTD="Some MOTD message"
+MAP         -->   Map name, MAP="wold"
+CLEANMAP    -->   Cleans $MAP|world on server startup, CLEANMAP=true
+GRAVATAR    -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
+DIFFICULTY  -->   Set game difficulty, DIFFICULTY=#
 ```
 
 Usage:
