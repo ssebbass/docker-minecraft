@@ -62,9 +62,11 @@ fi
 # Gravatar icon
 if [ -n "$GRAVATAR" ] ; then
   echo GRAVATAR=$GRAVATAR...
+  [ -f server-icon.jpg ] && rm -f server-icon.jpg
+  [ -f server-icon.png ] && rm -f server-icon.png
   URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
   wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64
-  conver server-icon.jpg server-icon.png
+  convert server-icon.jpg server-icon.png
 fi
 
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
