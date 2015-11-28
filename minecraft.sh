@@ -69,6 +69,14 @@ if [ -n "$GRAVATAR" ] ; then
   convert server-icon.jpg server-icon.png
 fi
 
+# Difficulty conf
+if [ -n "$DIFFICULTY" ]; then
+  echo DIFFICULTY=$DIFFICULTY...
+  echo "difficulty=$DIFFICULTY" >> server.properties
+else
+  echo "difficulty=1" >> server.properties
+fi
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo "eula=true" > eula.txt
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
