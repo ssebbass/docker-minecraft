@@ -19,6 +19,7 @@ RUN chmod +x /minecraft.sh \
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   imagemagick \
+  screen \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
