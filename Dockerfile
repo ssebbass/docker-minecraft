@@ -19,7 +19,6 @@ RUN chmod +x /minecraft.sh \
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   imagemagick \
-  tmux \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
