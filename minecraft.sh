@@ -14,14 +14,14 @@ if [ -e "forge-$FORGEVERSION-installer.jar" ]; then
   echo Allready downloaded forge-$FORGEVERSION-installer.jar
 else
   echo Downloading forge-$FORGEVERSION-installer.jar...
-  wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar"
+  wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar" 2>/dev/null
 fi
 
 if [ -e "minecraft_server.$RECOMMENDEDMINE.jar" ]; then
   echo Allready downloaded minecraft_server.$RECOMMENDEDMINE.jar
 else
   echo Downloading minecraft_server.$RECOMMENDEDMINE.jar...
-  wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar"
+  wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
 fi
 
 # Go to the data dir and run the forge installer and then the minecraft server
@@ -67,7 +67,7 @@ if [ -n "$GRAVATAR" ] ; then
   [ -f server-icon.jpg ] && rm -f server-icon.jpg
   [ -f server-icon.png ] && rm -f server-icon.png
   URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
-  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64
+  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64 2>/dev/null
   convert server-icon.jpg server-icon.png
 fi
 
