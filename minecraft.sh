@@ -79,14 +79,19 @@ fi
 
 # Accept EULA
 if [ "$EULA" = "true" ]; then
+  echo "EULA=$EULA..."
   echo "eula=true" > eula.txt
+else
+  echo "EULA not accepted..."
 fi
 
 # Online Mode conf
 if [ "MODE" = "false" ]; then
+  echo "MODE=$MODE..."
   echo "online-mode=false" >> server.properties
 else
-  echo "online-mode=false" >> server.properties
+  echo "MODE=true..."
+  echo "online-mode=true" >> server.properties
 fi
 
 
