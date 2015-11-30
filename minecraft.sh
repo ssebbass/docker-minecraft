@@ -77,7 +77,11 @@ else
   echo "difficulty=1" >> server.properties
 fi
 
+# Accept EULA
+if [ "$EULA" = "true" ]; then
+  echo "eula=true" > eula.txt
+fi
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
-echo "eula=true" > eula.txt
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
 
