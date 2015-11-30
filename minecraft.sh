@@ -89,7 +89,7 @@ else
 fi
 
 # Online Mode conf
-if [ "MODE" = "false" ]; then
+if [ "$MODE" = "false" ]; then
   echo "MODE=$MODE..."
   echo "online-mode=false" >> server.properties
 else
