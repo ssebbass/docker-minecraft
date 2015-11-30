@@ -82,6 +82,14 @@ if [ "$EULA" = "true" ]; then
   echo "eula=true" > eula.txt
 fi
 
+# Online Mode conf
+if [ "MODE" = "false" ]; then
+  echo "online-mode=false" >> server.properties
+else
+  echo "online-mode=false" >> server.properties
+fi
+
+
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
 

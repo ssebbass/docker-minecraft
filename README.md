@@ -10,6 +10,8 @@ MAP         -->   Map name, MAP="wold"
 CLEANMAP    -->   Cleans $MAP|world on server startup, CLEANMAP=true
 GRAVATAR    -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
 DIFFICULTY  -->   Set game difficulty, DIFFICULTY=#
+EULA        -->   Accept EULA, EULA=true
+MODE        -->   Set online mode, MODE=false|true
 ```
 
 Usage:
