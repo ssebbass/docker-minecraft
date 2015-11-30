@@ -13,12 +13,14 @@ FORGEVERSION="$RECOMMENDEDMINE-$RECOMMENDEDFORGE"
 if [ -e "forge-$FORGEVERSION-installer.jar" ]; then
   echo Allready downloaded forge-$FORGEVERSION-installer.jar
 else
+  echo Downloading forge-$FORGEVERSION-installer.jar...
   wget "http://files.minecraftforge.net/maven/net/minecraftforge/forge/$FORGEVERSION/forge-$FORGEVERSION-installer.jar" 2>/dev/null
 fi
 
 if [ -e "minecraft_server.$RECOMMENDEDMINE.jar" ]; then
   echo Allready downloaded minecraft_server.$RECOMMENDEDMINE.jar
 else
+  echo Downloading minecraft_server.$RECOMMENDEDMINE.jar...
   wget "https://s3.amazonaws.com/Minecraft.Download/versions/$RECOMMENDEDMINE/minecraft_server.$RECOMMENDEDMINE.jar" 2>/dev/null
 fi
 
@@ -65,7 +67,8 @@ if [ -n "$GRAVATAR" ] ; then
   [ -f server-icon.jpg ] && rm -f server-icon.jpg
   [ -f server-icon.png ] && rm -f server-icon.png
   URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
-  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64 >/dev/null 2>&1
+  echo Downloading Gravatar...
+  wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64 2>/dev/null
   convert server-icon.jpg server-icon.png
 fi
 
@@ -77,7 +80,25 @@ else
   echo "difficulty=1" >> server.properties
 fi
 
+# Accept EULA
+if [ "$EULA" = "true" ]; then
+  echo "EULA=$EULA..."
+  echo "eula=true" > eula.txt
+else
+  echo "EULA not accepted..."
+fi
+
+# Online Mode conf
+if [ "$MODE" = "false" ]; then
+  echo "MODE=$MODE..."
+  echo "online-mode=false" >> server.properties
+else
+  echo "MODE=true..."
+  echo "online-mode=true" >> server.properties
+fi
+
+echo Installing forge-$FORGEVERSION-installer.jar...
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
-echo "eula=true" > eula.txt
+echo Running minecraft_server.$RECOMMENDEDMINE.jar...
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
 
