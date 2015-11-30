@@ -67,6 +67,7 @@ if [ -n "$GRAVATAR" ] ; then
   [ -f server-icon.jpg ] && rm -f server-icon.jpg
   [ -f server-icon.png ] && rm -f server-icon.png
   URL=$( echo -n "$GRAVATAR" | awk '{print tolower($0)}' | tr -d '\n ' | md5sum --text | awk '{print $1}' )
+  echo Downloading Gravatar...
   wget -O server-icon.jpg http://www.gravatar.com/avatar/$URL?s=64 2>/dev/null
   convert server-icon.jpg server-icon.png
 fi
@@ -96,7 +97,8 @@ else
   echo "online-mode=true" >> server.properties
 fi
 
-
+echo Installing forge-$FORGEVERSION-installer.jar...
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
+echo Running minecraft_server.$RECOMMENDEDMINE.jar...
 java -Xms512M -Xmx900M -jar /tmp/minecraft_server.$RECOMMENDEDMINE.jar
 
