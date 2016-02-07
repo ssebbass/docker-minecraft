@@ -2,7 +2,7 @@
 # Just trying to get a minecraft server running to play with my son
 
 FROM java:jre
-MAINTAINER sSeBBaSs
+MAINTAINER sSeBBaSs (ssebbass@gmail.com)
 EXPOSE 25565
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
