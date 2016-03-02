@@ -97,6 +97,10 @@ else
   echo "online-mode=true" >> server.properties
 fi
 
+# Some cleanup
+echo "Cleaning old log files"
+find /srv -type f -name "*log.gz" -ctime +7 -exec rm -fv {} \+
+
 echo Installing forge-$FORGEVERSION-installer.jar...
 java -jar /tmp/forge-$FORGEVERSION-installer.jar --installServer >/dev/null 2>&1
 echo Running minecraft_server.$RECOMMENDEDMINE.jar...
