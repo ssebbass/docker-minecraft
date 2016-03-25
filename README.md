@@ -12,6 +12,7 @@ GRAVATAR    -->   Gravatar email for server icon, GRAVATAR="email@domain.com"
 DIFFICULTY  -->   Set game difficulty, DIFFICULTY=#
 EULA        -->   Accept EULA, EULA=true
 MODE        -->   Set online mode, MODE=false|true
+VERSION     -->   Please imput Minecraft Server version, [1.9]
 ```
 
 Usage:
@@ -21,5 +22,6 @@ Usage:
 
 Example:
 ```
-# docker run -d -p 25565:25565 -v /srv/minecraftserver:/srv -e MOTD="My server MOTD" -e SEED="488956386" -e OPS="FOO,BAR" ssebbass/docker-minecraft
+# docker run -d -p 25565:25565 -v /srv/minecraftserver:/srv -e VERSION="1.9" -e MOTD="My server MOTD" -e SEED="488956386" -e OPS="FOO,BAR" ssebbass/docker-minecraft
 ```
+
