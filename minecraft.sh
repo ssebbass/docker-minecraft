@@ -3,7 +3,11 @@ set -xe
 
 if [ -n "$VERSION" ]; then
 	cd /tmp
-	wget "https://s3.amazonaws.com/Minecraft.Download/versions/$VERSION/minecraft_server.$VERSION.jar"
+  if [ ! -f "minecraft_server.$VERSION.jar" ]; then
+  	wget "https://s3.amazonaws.com/Minecraft.Download/versions/$VERSION/minecraft_server.$VERSION.jar"
+  else
+    echo "Already have the minecraft_server."$VERSION".jar"
+  fi
 else
 	echo "Please: -e VERSION=\"1.9\""
 	exit 1
