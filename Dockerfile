@@ -11,11 +11,15 @@ RUN apt-get update &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/*
 
+# Set timezone to BA
+RUN echo 'America/Argentina/Buenos_Aires' > /etc/timezone && \
+  dpkg-reconfigure --frontend noninteractive tzdata
+
+# Minecraft scripts and configs
 ADD minecraft.sh /minecraft.sh
 ADD run.sh /run.sh
 ADD server.properties /tmp/server.properties
 
 VOLUME ["/srv"]
 WORKDIR /srv
-RUN chmod +x /minecraft.sh /run.sh
 CMD [ "/run.sh" ]
